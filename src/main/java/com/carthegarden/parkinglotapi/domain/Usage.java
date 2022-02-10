@@ -1,62 +1,77 @@
 package com.carthegarden.parkinglotapi.domain;
 
+import com.carthegarden.parkinglotapi.dto.UsageDTO;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicInsert;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@DynamicInsert
 public class Usage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(unique = true)
+    @OneToOne
     private ParkingSpace parkingSpace;
 
+    @JoinColumn(unique = true)
     @OneToOne
     private Member member;
 
+    @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date entranceTime;
 
-    @Column(columnDefinition = "boolean default false")
-    private Boolean occupied;
+//    @Column(columnDefinition = "boolean default false")
+//    private Boolean occupied;
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public ParkingSpace getParkingSpace() {
         return parkingSpace;
     }
 
-    public void setParkingSpace(ParkingSpace parkingSpace) {
-        this.parkingSpace = parkingSpace;
-    }
-
     public Member getMember() {
         return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
     }
 
     public Date getEntranceTime() {
         return entranceTime;
     }
 
-    public void setEntranceTime(Date entranceTime) {
-        this.entranceTime = entranceTime;
-    }
+//    public Boolean getOccupied() {
+//        return occupied;
+//    }
 
-    public Boolean getOccupied() {
-        return occupied;
-    }
+    public static class Builder {
 
-    public void setOccupied(Boolean occupied) { this.occupied = occupied; }
+        private ParkingSpace parkingSpace;
+        private Member member;
+//        private Boolean occupied;
+
+        public Builder(UsageDTO.Usage usage) {
+            this.parkingSpace = usage.getParkingSpace();
+            this.member = usage.getMember();
+        }
+
+//        public Builder SetOccupied(Boolean occupied){
+//            this.occupied = occupied;
+//            return this;
+//        }
+
+        public Usage build() {
+            Usage usage = new Usage();
+            usage.parkingSpace = parkingSpace;
+            usage.member = member;
+
+            return usage;
+        }
+    }
 }
