@@ -1,0 +1,8 @@
+POST http://localhost:41000/api/parkingspace
+Content-Type: application/json
+
+{
+  "parkingLotId": 1,
+  "parkingLockId": "TEST01",
+  "section": "B6층 D구역 24번"
+}

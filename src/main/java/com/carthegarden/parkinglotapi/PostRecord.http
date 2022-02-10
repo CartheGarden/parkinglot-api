@@ -1,0 +1,6 @@
+POST http://localhost:41000/api/record
+Content-Type: application/json
+
+{
+  "parkingLockId": "TEST01"
+}

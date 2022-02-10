@@ -1,0 +1,18 @@
+POST http://localhost:41000/api/parkinglot
+Content-Type: application/json
+
+{
+  "weekdayStartTime": "09:00",
+  "weekdayEndTime": "17:00",
+  "weekendStartTime": "00:00",
+  "weekendEndTime": "00:00",
+  "holidayStartTime": "00:00",
+  "holidayEndTime": "00:00",
+  "address": "경기 수원시 장안구 화산로 213번길",
+  "adminPhone": "010-3890-6081",
+  "basicCharge": "2000",
+  "basicTimeUnitMinute": "60",
+  "additionalCharge": "250",
+  "additionalTimeUnitMinute": "10",
+  "dailyCharge": "10000"
+}

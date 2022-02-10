@@ -1,0 +1,7 @@
+POST http://localhost:41000/api/usage
+Content-Type: application/json
+
+{
+  "parkingSpaceId": "1",
+  "naverId": "TESTTOKEN"
+}

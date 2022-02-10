@@ -1,0 +1,2 @@
+GET http://localhost:41000/api/parkingspace/TEST01
+Content-Type: application/json
