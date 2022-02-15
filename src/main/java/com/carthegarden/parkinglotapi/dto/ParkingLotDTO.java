@@ -21,6 +21,7 @@ public class ParkingLotDTO {
         private String holidayEndTime;
         private String address;
         private String adminPhone;
+        private String name;
         private Integer basicCharge;
         private Integer basicTimeUnitMinute;
         private Integer additionalCharge;
@@ -57,6 +58,10 @@ public class ParkingLotDTO {
 
         public String getAdminPhone() {
             return adminPhone;
+        }
+
+        public String getName() {
+            return name;
         }
 
         public Integer getBasicCharge() {

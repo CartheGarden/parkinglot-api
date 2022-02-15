@@ -10,6 +10,7 @@ Content-Type: application/json
   "holidayEndTime": "00:00",
   "address": "경기 수원시 장안구 화산로 213번길",
   "adminPhone": "010-3890-6081",
+  "name": "율전 공용주차장",
   "basicCharge": "2000",
   "basicTimeUnitMinute": "60",
   "additionalCharge": "250",

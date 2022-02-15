@@ -19,6 +19,8 @@ public class ParkingLot {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastUpdate;
 
+    private String name;
+
     private String weekdayStartTime;
 
     private String weekdayEndTime;
@@ -47,6 +49,10 @@ public class ParkingLot {
 
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Date getLastUpdate() {
@@ -115,6 +121,7 @@ public class ParkingLot {
         private String holidayEndTime;
         private String address;
         private String adminPhone;
+        private String name;
         private Integer basicCharge;
         private Integer basicTimeUnitMinute;
         private Integer additionalCharge;
@@ -130,6 +137,7 @@ public class ParkingLot {
             this.holidayEndTime = info.getHolidayEndTime();
             this.address = info.getAddress();
             this.adminPhone = info.getAdminPhone();
+            this.name = info.getName();
             this.basicCharge = info.getBasicCharge();
             this.basicTimeUnitMinute = info.getBasicTimeUnitMinute();
             this.additionalCharge = info.getAdditionalCharge();
@@ -147,6 +155,7 @@ public class ParkingLot {
             parkingLot.holidayEndTime = holidayEndTime;
             parkingLot.address = address;
             parkingLot.adminPhone = adminPhone;
+            parkingLot.name = name;
             parkingLot.basicCharge = basicCharge;
             parkingLot.basicTimeUnitMinute = basicTimeUnitMinute;
             parkingLot.additionalCharge = additionalCharge;
