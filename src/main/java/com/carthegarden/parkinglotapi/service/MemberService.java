@@ -5,6 +5,8 @@ import com.carthegarden.parkinglotapi.dto.MemberDto;
 import com.carthegarden.parkinglotapi.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
 @Service
 public class MemberService {
 
