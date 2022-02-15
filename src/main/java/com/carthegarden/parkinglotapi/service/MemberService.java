@@ -17,7 +17,7 @@ public class MemberService {
     public Member loginMember(MemberDto.MemberLoginDto memberLoginDto) {
 
         String naverId = memberLoginDto.getNaverId();
-        Member member = memberRepository.findByNaverId(naverId);
+        Member member = memberRepository.findByNaverId(naverId).orElseThrow(NoSuchElementException::new);
         if(member == null) {
             Member newMember = new Member.Builder(memberLoginDto).build();
 
