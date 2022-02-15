@@ -6,6 +6,7 @@ import com.carthegarden.parkinglotapi.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class MemberService {
@@ -19,11 +20,13 @@ public class MemberService {
     public Member loginMember(MemberDto.MemberLoginDto memberLoginDto) {
 
         String naverId = memberLoginDto.getNaverId();
-        Member member = memberRepository.findByNaverId(naverId).orElseThrow(NoSuchElementException::new);
-        if(member == null) {
+        Member member;
+        Optional<Member> optionalMember = memberRepository.findByNaverId(naverId);
+        if(!optionalMember.isPresent()) {
             Member newMember = new Member.Builder(memberLoginDto).build();
-
             member = memberRepository.save(newMember);
+        } else {
+            member = optionalMember.get();
         }
 
         return member;
