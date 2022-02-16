@@ -45,8 +45,8 @@ public class UsageController {
     @PostMapping("/api/usage")
     public ResponseEntity<Usage> useParkingSpace(@RequestBody UsageDTO.Request request) {
         Usage usage = usageService.register(request);
-
-        mailService.sendMail("사용자: "+request.getNaverId(), "ParkingSpaceId: "+request.getParkingSpaceId()+"\nUsage Id: "+usage.getId(), "hskeen@naver.com");
+        Member member = usage.getMember();
+        mailService.sendMail("사용자: "+member.getName(), "ParkingSpaceId: "+request.getParkingSpaceId()+"\nUsage Id: http://nother.ml/usage?usageId="+usage.getId(), member.getEmail());
         // TODO: 이메일 템플릿 설정(usageId 포함된 링크, 해당 링크로 usage조회)
 
         parkingLockService.deactivate();
