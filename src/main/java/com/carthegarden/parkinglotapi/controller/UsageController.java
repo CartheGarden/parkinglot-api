@@ -1,6 +1,6 @@
 package com.carthegarden.parkinglotapi.controller;
 
-import com.carthegarden.parkinglotapi.domain.ParkingSpace;
+import com.carthegarden.parkinglotapi.domain.Member;
 import com.carthegarden.parkinglotapi.domain.Usage;
 import com.carthegarden.parkinglotapi.dto.UsageDTO;
 import com.carthegarden.parkinglotapi.service.BillService;
@@ -12,9 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.Date;
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 public class UsageController {
@@ -53,5 +52,11 @@ public class UsageController {
         // TODO: 하드웨어 장치에 신호 보내기
 
         return new ResponseEntity<>(usage, HttpStatus.OK);
+    }
+
+    @GetMapping("/api/usage/parkingLockList")
+    public ResponseEntity<List<String>> getParkingLockList() {
+        List<String> parkingLockList = usageService.getParkingLockList();
+        return new ResponseEntity<>(parkingLockList, HttpStatus.OK);
     }
 }
