@@ -14,8 +14,6 @@ public class BillService {
     }
 
     public long GetUsageMinute(Date startTime, Date endTime) {
-        System.out.println(startTime.getTime());
-        System.out.println(endTime.getTime());
         return (endTime.getTime() - startTime.getTime()) / (60*1000);
     }
 
