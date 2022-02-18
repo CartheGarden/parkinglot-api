@@ -10,6 +10,8 @@ import com.carthegarden.parkinglotapi.repository.UsageRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -40,5 +42,17 @@ public class UsageService {
         Usage usage = new Usage.Builder(usageBuild).build();
         // TODO: parkingSpace available false로 변경, Member is_payed 필드 수정
         return usageRepository.save(usage);
+    }
+
+    public List<String> getParkingLockList() {
+        List<Long> parkingSpaceIds = usageRepository.findAllParkingSpaceId();
+        List<String> parkingLockIds = new ArrayList<String>();
+
+        for(Long id : parkingSpaceIds) {
+            Optional<ParkingSpace> parkingSpace = parkingSpaceRepository.findById(id);
+            String parkingLockId = parkingSpace.get().getParkingLockId();
+            parkingLockIds.add(parkingLockId);
+        }
+        return parkingLockIds;
     }
 }
