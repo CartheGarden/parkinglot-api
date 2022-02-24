@@ -31,8 +31,8 @@ public class RecordController {
     public ResponseEntity<Record> CreateRecord(@RequestBody RecordDTO.Request request) {
         Record record = recordService.createRecord(request);
 
-        mailService.sendMail("사용 종료", "요금: "+record.getCharge(), "hskeen@naver.com");
-        // TODO: 이메일 템플릿 설정
+        mailService.sendMail("어따하지 이용 종료", record.getMember().getEmail(),
+                record.getMember().getName(), record.getCharge());
 
         parkingLockService.activate();
         // TODO: 하드웨어 장치에 신호 보내기

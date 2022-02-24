@@ -1,0 +1,8 @@
+POST http://localhost:41000/api/login
+Content-Type: application/json
+
+{
+  "name": "가나다",
+  "email": "example@naver.com",
+  "naverId": "TESTTOKEN"
+}

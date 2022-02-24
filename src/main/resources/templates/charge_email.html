@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table style="overflow:hidden;background:#fff;margin:0 auto;text-align:left;position:relative;font-size:14px; font-family:'lucida Grande',Verdana;line-height:1.5;border-radius:5px;border-color:transparent">
+    <tr>
+        <th style="height:38px;color:#fff; font-size:14px;line-height:38px; font-weight:bold;text-align:left;padding:10px 24px 6px; border-bottom:1px solid #005629;background:#005629;border-radius:5px 5px 0 0;">
+            Nother
+        </th>
+    </tr>
+    <tr>
+        <td style="border-left:1px solid #ccc; border-right:1px solid #ccc; border-bottom: 1px solid #ccc; border-radius:0 0 5px 5px;">
+            <div style="padding:20px 35px 40px;">
+                <div style="padding-bottom:10px;margin-bottom:30px;font-size:20px;font-weight:bold;color:#005629;border-bottom:1px solid #777">
+                    어따하지 이용 종료
+                </div>
+                <div style="min-height:20px;color:#000000">
+                    <strong th:text="${name}" style="color: #F9A830">000</strong>님의 출차 후 요금 안내 메일입니다.
+                </div>
+                <div style="min-height:20px;color:#000000">
+                    이용해주셔서 감사합니다.
+                </div>
+                <div style="text-align:center;margin-top:20px">
+                    이용 요금: <span th:text="${charge}">0원</span>
+                </div>
+                <p style="margin-top:30px">
+                    문의: <a href="#">어따하지 카카오톡 채널</a>
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

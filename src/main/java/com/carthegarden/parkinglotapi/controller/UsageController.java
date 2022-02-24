@@ -45,8 +45,7 @@ public class UsageController {
     public ResponseEntity<Usage> useParkingSpace(@RequestBody UsageDTO.Request request) {
         Usage usage = usageService.register(request);
         Member member = usage.getMember();
-        mailService.sendMail("사용자: "+member.getName(), "ParkingSpaceId: "+request.getParkingSpaceId()+"\nUsage Id: http://nother.ml/usage?usageId="+usage.getId(), member.getEmail());
-        // TODO: 이메일 템플릿 설정(usageId 포함된 링크, 해당 링크로 usage조회)
+        mailService.sendMail("어따하지 이용 안내", member.getEmail(), member.getName(), usage.getId());
 
         parkingLockService.deactivate();
         // TODO: 하드웨어 장치에 신호 보내기

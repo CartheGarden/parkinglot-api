@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table style="overflow:hidden;background:#fff;margin:0 auto;text-align:left;position:relative;font-size:14px; font-family:'lucida Grande',Verdana;line-height:1.5;border-radius:5px;border-color:transparent">
+    <tr>
+        <th style="height:38px;color:#fff; font-size:14px;line-height:38px; font-weight:bold;text-align:left;padding:10px 24px 6px; border-bottom:1px solid #005629;background:#005629;border-radius:5px 5px 0 0;">
+            Nother
+        </th>
+    </tr>
+    <tr>
+        <td style="border-left:1px solid #ccc; border-right:1px solid #ccc; border-bottom: 1px solid #ccc; border-radius:0 0 5px 5px;">
+            <div style="padding:20px 35px 40px;">
+                <div style="padding-bottom:10px;margin-bottom:30px;font-size:20px;font-weight:bold;color:#005629;border-bottom:1px solid #777">
+                    어따하지 주차 이용 정보
+                </div>
+                <div style="min-height:20px;color:#000000">
+                    <strong th:text="${name}" style="color: #F9A830">000</strong>님의 주차안내 메일입니다.
+                </div>
+                <div style="min-height:20px;color:#000000">
+                    아래 버튼을 클릭하시면, 주차 이용정보를 확인하실 수 있습니다.
+                </div>
+                <p style="text-align:center;">
+                    <span style="margin-top:20px; display:inline-block; padding:10px 20px; border-radius:3px; font-weight:bold; width:auto; background:#005629;">
+                        <a th:href="@{http://nother.ml/usage(usageId=${usageId})}" style="color:#fff;text-decoration:none;" rel="noreferrer noopener" target="_blank">이용정보</a>
+                    </span>
+                </p>
+                <p style="margin-top:30px">
+                    문의: <a href="#">어따하지 카카오톡 채널</a>
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
